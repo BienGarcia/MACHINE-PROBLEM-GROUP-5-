@@ -1,0 +1,97 @@
+// This program computes for the angles, area, perimeter, etc. of a triangle given only the sides // The output shows the classification of triangle 
+ 
+#include<iostream> 
+#include<conio.h> 
+#include<cmath> //in order to use complex mathematical equations 
+using namespace std; 
+ 
+int main() { 
+ 
+float area, perimeter, apothem, circumcenter, anglea, angleb, anglec, radian90, s, a, b, c; //declaration of values 
+ 
+// input of the sides of the triangle 
+cout << "Enter the three sides of triangle: " << endl; 
+ 
+cin >> a >> b >> c; 
+ 
+//computing for all interior angles 
+ 
+anglea = acos(((c*c)+(b*b)-(a*a))/(2*b*c)); //cosine law 
+ 
+cout << "The first interior angle is: " << anglea*(180/3.14159) << " degrees" << endl; 
+ 
+//180 degrees is equal to 1 radian 
+ 
+angleb = acos(((c*c)+(a*a)-(b*b))/(2*c*a)); 
+ 
+cout << "The second interior angle is: " << angleb*(180/3.14159) << " degrees" << endl; 
+ 
+anglec = acos(((a*a)+(b*b)-(c*c))/(2*a*b)); 
+ 
+cout << "The third interior angle is: " << anglec*(180/3.14159) << " degrees" << endl; 
+ 
+//classifying whether scalene, isosceles, or equilateral 
+ 
+if (a == b && b == c && a == c) 
+ 
+cout << "The triangle is an equilateral." << endl; 
+ 
+else if (a == b || b == c || c==a) 
+ 
+cout << "The triangle is an isosceles." << endl; 
+ 
+else 
+ 
+cout << "The triangle is a scalene." << endl; 
+ 
+perimeter = a + b + c; //formula for perimeter 
+ 
+s= (a+b+c) / 2; //formula for s in order to solve for area 
+ 
+area = sqrt(s*(s-a)*(s-b)*(s-c)); // formula for area 
+ 
+cout << "The perimeter is: " << perimeter << endl; 
+ 
+cout << "The area is: " << area << endl; 
+ 
+radian90= 1.570796; //value of 90 degrees in radians 
+ 
+// Classifying whether acute, right, or obtuse triangle 
+ 
+if (anglea == radian90 || angleb == radian90 || anglec == radian90 ) 
+ 
+cout << "The triangle is a equilateral triangle." << endl; 
+ 
+if (anglea < radian90 && angleb < radian90 && anglec < radian90 ) 
+ 
+cout << "The triangle is an acute triangle." << endl; 
+ 
+if (anglea > radian90 && angleb > radian90 && anglec > radian90 ) 
+ 
+cout << "The triangle is a right triangle." << endl; 
+ 
+apothem = a/(2*tan(3.14159/3)); //formula for apothem 
+ 
+cout << "The apothem of the triangle is: " << apothem << endl; 
+ 
+if (a == b || b == c || c==a) 
+ 
+{ 
+ 
+circumcenter= ((a+b+c)/3)/sqrt(3); 
+ 
+cout << "The circumcenter of the triangle is: " << circumcenter << endl; 
+ 
+} 
+ 
+else if (a != b || b != c || c!=a) 
+{ 
+ 	circumcenter =(a*b*c)/((sqrt(a+b+c))*(c+a-b)*(c+b-a)*(a+b-c)); // formula for circumcenter 
+	cout << "The circumcenter of the triangle is: " << circumcenter << endl; 
+ 
+} 
+_getch(); 
+ 
+return 0; 
+
+} 
