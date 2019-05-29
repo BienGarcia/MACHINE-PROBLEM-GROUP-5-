@@ -19,7 +19,7 @@ int main()
   cout << "Student name: ";   
   getline(cin, name[i]);                       
   
-  cout << "Enter score in quizzes: \n"; // Allows the user to input the score in quizzes    
+  cout << "Enter score in quizzes ( /50): \n"; // Allows the user to input the score in quizzes    
   cout << "Quiz 1:" ; cin >> q1[i];   
   cout << "Quiz 2:" ; cin >> q2[i];      
   cout << "Quiz 3:" ; cin >> q3[i];   
@@ -31,8 +31,7 @@ int main()
   cout << "Quiz 9:" ; cin >> q9[i];                  
   cin.ignore(); 
  
-  cout << "Enter score in pre-tests: \n"; // Allows the user to input the score in pretests 
- 
+  cout << "Enter score in pre-tests ( /100): \n"; // Allows the user to input the score in pretests 
   cout << "Pre-test 1:" ;cin >> pt1[i];   
   cout << "Pre-test 2:" ;cin >> pt2[i];    
   cout << "Pre-test 3:" ;cin >> pt3[i];   
@@ -44,18 +43,18 @@ int main()
   cout << "Pre-test 9:" ;cin >> pt9[i];                     
   cin.ignore(); 
  
-  cout << "Enter score in problem sets: \n"; // Allows the user to input the score in problem sets 
+  cout << "Enter score in problem sets ( /150): \n"; // Allows the user to input the score in problem sets 
  
   cout << "Problem set 1:" ;cin >> ps1[i];   
   cout << "Problem set 2:" ;cin >> ps2[i];   
   cout << "Problem set 3:" ;cin >> ps3[i];   
   cin.ignore(); 
  
-  cout << "Enter score in prelim exams: \n"; // Allows the user to input the score in prelims 
+  cout << "Enter score in prelim exams ( /100): \n"; // Allows the user to input the score in prelims 
   cin >> prelims[i];                    
   cin.ignore(); 
  
-  cout << "Enter total score in final exams: \n"; // Allows the user to input the score in finals   
+  cout << "Enter total score in final exams ( /100): \n"; // Allows the user to input the score in finals   
   cin >> finals[i];   
   cin.ignore();      
   
