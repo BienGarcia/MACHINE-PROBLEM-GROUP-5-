@@ -1,0 +1,127 @@
+//This program prompts the user to input scores and computes the grade of the student //The output shows the raw grade, transmuted grade, and the top 10 students 
+#include <iostream> 
+#include <conio.h> 
+#include <string> 
+#include <cmath> 
+#include <iomanip> 
+ 
+using namespace std;   //allows the use of cout and endl without the prefix :std: 
+ 
+int main() 
+ 
+{ 
+//declaring data types and identifiers  
+ int quiztotal[50], acts[50], prelims[50], finals[50], q1[50], q2[50], q3[50], q4[50], q5[50], q6[50], q7[50], q8[50], q9[50]; 
+ int pt1[50], pt2[50], pt3[50], pt4[50], pt5[50], pt6[50], pt7[50], pt8[50], pt9[50], ps1[50], ps2[50], ps3[50];  double qte[50], quiz[50], actstotal[50], exams[50];  string name[50];  int k,j,i;  string n; 
+ 
+ for (int i=0; i<50;i++) // using loop statement to repeat the process until student no. 50  
+ {   
+  cout << "Student name: ";   
+  getline(cin, name[i]);                       
+  
+  cout << "Enter score in quizzes: \n"; // Allows the user to input the score in quizzes    
+  cout << "Quiz 1:" ; cin >> q1[i];   
+  cout << "Quiz 2:" ; cin >> q2[i];      
+  cout << "Quiz 3:" ; cin >> q3[i];   
+  cout << "Quiz 4:" ; cin >> q4[i];   
+  cout << "Quiz 5:" ; cin >> q5[i];   
+  cout << "Quiz 6:" ; cin >> q6[i];   
+  cout << "Quiz 7:" ; cin >> q7[i];   
+  cout << "Quiz 8:" ; cin >> q8[i];   
+  cout << "Quiz 9:" ; cin >> q9[i];                  
+  cin.ignore(); 
+ 
+  cout << "Enter score in pre-tests: \n"; // Allows the user to input the score in pretests 
+ 
+  cout << "Pre-test 1:" ;cin >> pt1[i];   
+  cout << "Pre-test 2:" ;cin >> pt2[i];    
+  cout << "Pre-test 3:" ;cin >> pt3[i];   
+  cout << "Pre-test 4:" ;cin >> pt4[i];   
+  cout << "Pre-test 5:" ;cin >> pt5[i];   
+  cout << "Pre-test 6:" ;cin >> pt6[i];   
+  cout << "Pre-test 7:" ;cin >> pt7[i];   
+  cout << "Pre-test 8:" ;cin >> pt8[i];   
+  cout << "Pre-test 9:" ;cin >> pt9[i];                     
+  cin.ignore(); 
+ 
+  cout << "Enter score in problem sets: \n"; // Allows the user to input the score in problem sets 
+ 
+  cout << "Problem set 1:" ;cin >> ps1[i];   
+  cout << "Problem set 2:" ;cin >> ps2[i];   
+  cout << "Problem set 3:" ;cin >> ps3[i];   
+  cin.ignore(); 
+ 
+  cout << "Enter score in prelim exams: \n"; // Allows the user to input the score in prelims 
+  cin >> prelims[i];                    
+  cin.ignore(); 
+ 
+  cout << "Enter total score in final exams: \n"; // Allows the user to input the score in finals   
+  cin >> finals[i];   
+  cin.ignore();      
+  
+  quiztotal[i] = (q1[i] + q2[i] + q3[i] + q4[i] + q5[i] + q6[i] + q7[i] + q8[i] + q9[i] ); // total of 9 quizzes   
+  quiz[i] = ((quiztotal[i]*100)/450) * 0.30; // percentage of the total quizzes            
+  actstotal[i] = pt1[i] + pt2[i] + pt3[i] + pt4[i] + pt5[i] + pt6[i] + pt7[i] + pt8[i] + pt9[i] + ps1[i]+ ps2[i] + ps3[i]; // total of 9 pre-tests and 3 problem sets   
+  acts[i] =  ((actstotal[i]*100)/1350) * 0.15; // percentage of the total activities   
+  exams[i] = (((prelims[i]*100)/100) * 0.25) + (((finals[i]*100)/100) * 0.30); // simply add the percentage of the prelim and final exam    
+  qte[i] = quiz[i] + acts[i] + exams[i]; // adding all the average percentage to get the raw grade        
+ 
+  cout << "Raw Grade: " << qte[i] << endl;   // Classifying the transmuted grade   
+  if (qte[i]>=95.57)   
+  cout << "You Passed! Your Final Grade is: 1.00" << endl;      
+  
+  else if (qte[i]<95.57 && 91.12<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 1.25" << endl;      
+  
+  else if (qte[i]<91.12 && 86.68<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 1.50" << endl;      
+  
+  else if (qte[i]<86.68 && 82.23<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 1.75" << endl;      
+  
+  else if (qte[i]<82.23 && 77.79<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 2.00" << endl;      
+  
+  else if (qte[i]<77.79 && 73.34<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 2.25" << endl;      
+  
+  else if (qte[i]<73.34 && 68.90<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 2.50" << endl;      
+  
+  else if (qte[i]<68.90 && 64.45<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 2.75" << endl;      
+  
+  else if (qte[i]<64.45 && 60.00<=qte[i])   
+  cout << "You Passed! Your Final Grade is: 3.00" << endl;      
+  
+  else    
+  cout << "You Failed! Your Final Grade is: 5.00" << endl; // if the raw grade is below 60 it will output failed with a final grade of 5.00 
+ 
+  cout << endl;    }  // ranking the students using selection sorting  
+  cout << "Top 10 Students:" << endl;    
+  for(i=0;i<50;i++) //this loop sorts the array to find out who has the highest grades  
+  {   
+  	for(j=i+1;j<50;j++)   
+	  {    
+	  	if(qte[i]<qte[j])    
+		  {     
+		  k=qte[j];     
+		  qte[j]=qte[i];     
+		  qte[i]=k;          
+		  n=name[j];     
+		  name[j]=name[i];     
+		  name[i]=n;    
+		  }   
+		}  
+		
+	}  
+	
+	for(i=0;i<10;i++) //this loop will show the top 10 students  
+	{   
+	cout << i+1 << ". " << name[i] << " " << qte[i] << endl;  
+	}  
+	
+ _getch(); 
+ return 0; 
+ 
+ }
